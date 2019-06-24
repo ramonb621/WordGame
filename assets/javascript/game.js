@@ -5,9 +5,11 @@ let options = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
 document.onkeyup = function (event){
    let userGuess = event.key;
 
-   let computerGuess = options[Math.floor(Math.random() * options.length)];
 
-   if (userGuess ===  options) {
-    console.log("txt");
+   console.log(userGuess);
+//    let computerGuess = options[Math.floor(Math.random() * options.length)];
+
+//    if (userGuess ===  options) {
+//     console.log(element);
 }
-}
+
