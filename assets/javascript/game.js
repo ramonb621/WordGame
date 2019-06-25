@@ -1,10 +1,11 @@
-let userGuess = document.getElementsByClassName("text").innerHTML = [];
 
 let options = ["horse", "rope", "saddle", "saloon", "train", "cowboy", "wagon", "tuberculosis", "cactus", "pistol", "steeple", "sule", "spurs", "boots", "chaps"];
 
+let userGuess = document.getElementsByClassName("text").innerHTML = [];
+
 let session = options[Math.floor(Math.random() * options.length)]; //for selecting random word
 
-//using underscore to show each letter of answer
+//using underscore to show each letter of answer and trying to use this section to log in answers section
 let answers = [];
 for (let i = 0; i < session.length; i++){
     answers[i] = "_";

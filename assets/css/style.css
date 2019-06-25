@@ -6,8 +6,12 @@ body{
     width: 100%;
 }
 h1{
-    font-size: 58px;
-    border: 5px dotted white;
+    font-size: 48px;
+    color: whitesmoke;
+    border: 5px dotted gold;
+}
+h2{
+    color: red;
 }
 #main{
     display: block;
@@ -15,4 +19,13 @@ h1{
     margin-right: auto;
     width: 20%;
     text-align: center;
+}
+#wins{
+    color: gold;
+}
+/* #text{
+    color: greenyellow;
+} */
+#used{
+    color: red;
 }
