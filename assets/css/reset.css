@@ -46,3 +46,35 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* while (remLetters > 0 ){
+
+    alert(answers.join(" "));
+
+    let guess = prompt("Click any letter to start!")
+
+    if(guess === null){
+
+        break; //ends game
+
+
+    }else if(guess.length !== 1) {
+
+        alert("Choose only one letter, please!");
+
+    }else{
+
+        for ( let j = 0; j < word.length; j++){
+
+            if (word[j] === guess) {
+
+                answer[j] = guess;
+
+                remLetters--;
+            }
+        }
+    }
+}
+
+alert(answers.join(" "));
+
+alert("Good job! You picked out " + word + " !") */

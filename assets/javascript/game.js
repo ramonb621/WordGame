@@ -1,60 +1,65 @@
-let wins = 0;
-let current = word;
-let text = guess;
-let remaining = remLetters;
-let used = document.onkeyup = function(event) {
-    let userGuess = event.key;
-}
-
+let userGuess = document.getElementsByClassName("text").innerHTML = [];
 
 let options = ["horse", "rope", "saddle", "saloon", "train", "cowboy", "wagon", "tuberculosis", "cactus", "pistol", "steeple", "sule", "spurs", "boots", "chaps"];
 
-//for selecting random word
-let word = options[Math.floor(Math.random() * options.length)];
+let session = options[Math.floor(Math.random() * options.length)]; //for selecting random word
 
 //using underscore to show each letter of answer
 let answers = [];
-for (let i = 0; i < word.length; i++){
+for (let i = 0; i < session.length; i++){
     answers[i] = "_";
-}
-// document.onkeyup = function (event){
-//    let userGuess = event.key;
-
-// }
-
-let remLetters = word.length;
-
-////////////////////
-
-while (remLetters > 0 ){
-
-    alert(answers.join(" "));
-
-    let guess = prompt("Click any letter to start!")
-
-    if(guess === null){
-
-        break; //ends game
-
-
-    }else if(guess.length !== 1) {
-
-        alert("Choose only one letter, please!");
-
-    }else{
-
-        for ( let j = 0; j < word.length; j++){
-
-            if (word[j] === guess) {
-
-                answer[j] = guess;
-
-                remLetters--;
-            }
-        }
-    }
+    document.getElementsByClassName("current").innerHTML = answers;
 }
 
-alert(answers.join(" "));
+// let remLetters = session.length;
 
-alert("Good job! You picked out " + word + " !")
+// while (remLetters > 0 ){
+    
+    // onkeyup(answers.join(" "));
+    
+    // document.getElementsByClassName("start").innerHTML = "Click any letter to start!";
+    
+    // }    
+    ////////////////////
+    
+    // document.getElementsByClassName("start").innerHTML = "Click any letter to start!";
+    
+    // let guess = prompt
+    // if(guess === null){
+        
+        //     break; //ends game
+        
+        
+        //     // }else if(guess.length !== 1) {
+            
+            //     //     alert("Choose only one letter, please!");
+            
+            //     }else{
+                
+                //         for ( let j = 0; j < word.length; j++){
+                    
+                    //             if (word[j] === guess) {
+                        
+                        //                 answer[j] = guess;
+                        
+                        //                 remLetters--;
+                        
+                        
+                        //                 let wins = remLetters;
+                        //                 if (remLetters === 0);{
+                            
+                            //                 document.getElementsByClassName("wins").innerHTML = "Wins:" + wins;
+                            
+                            //                 }
+                            //             }
+                            //         }
+                            //     }
+                            // }
+                            
+                            // alert(answers.join(" "));
+                            
+                            // alert("Good job! You picked out " + word + " !")
+                            
+                            // let alphaUsed = document.onkeyup = function(event) {
+                            //     userGuess = event.key;
+                            // }
