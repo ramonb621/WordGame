@@ -5,6 +5,14 @@ body{
     height:auto;
     width: 100%;
 }
+.hangman{
+    height: 200px;
+    width: 200px;
+    display:block;
+    float: left;
+    margin-left: 100px;
+    clear: both;
+}
 h1{
     font-size: 48px;
     color: whitesmoke;
@@ -20,8 +28,11 @@ h2{
     width: 20%;
     text-align: center;
 }
-#wins{
+.wins{
     color: gold;
+    float: right;
+    top: 0;
+    margin-right: 200px;
 }
 /* #text{
     color: greenyellow;

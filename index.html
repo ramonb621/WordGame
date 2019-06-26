@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" href="assets/css/style.css">
     <title>Hangman!</title>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -15,7 +16,9 @@
 <body>
         <script src= "assets/javascript/game.js"></script>
 
-    
+        <img class = "hangman" src = "assets/images/hangman.png">
+
+
 <section id="main">
 
     <h1>Hang 'Em Up!</h1>
@@ -40,13 +43,13 @@
 
 <section>
 
-    <div class = "current">
+    <div class = "current">Current Word
 
-        <p id = "current">Current Word</p>
+        <p id = "current"></p>
 
-        <div id = "text">
+        <div class = "text"> Correct Letters Used
 
-            <p id = "text">Correct Letters Used</p>
+            <p id = "text"></p>
 
         </div>
 
