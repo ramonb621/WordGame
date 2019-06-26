@@ -78,3 +78,32 @@ table {
 alert(answers.join(" "));
 
 alert("Good job! You picked out " + word + " !") */
+
+
+/* *******************************************
+
+let options = ["horse", "rope", "saddle", "saloon", "train", "cowboy", "wagon", "tuberculosis", "cactus", "pistol", "steeple", "sule", "spurs", "boots", "chaps"];
+
+let playerGuess = individual letters picked by player logged in text section of html
+
+let session = options[Math.floor(Math.random() * options.length)]; 
+//for selecting random word
+
+//using underscore to show each letter of answer and trying to use this section to log in answers section
+
+let answers = [];
+for (let i = 0; i < session.length; i++){
+    answers[i] = "_";
+    document.querySelector("current").innerHTML = answers[i];
+}
+
+
+// If the value of letters remaining is greater than 0, then click start to begin game
+
+let remLetters = session.length;
+
+if (remLetters > 0 ){
+    
+    document.querySelector("start").innerHTML = "Click any letter to start!";
+
+        // function start (answers.join(" "));
