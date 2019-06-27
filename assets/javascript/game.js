@@ -4,7 +4,7 @@ let maxAttempts = 5;       // max lives
 
 let lettersGuessed = [];  //letters guessed by player
 
-let currentWordsIndex;  //current word from array
+let currentWord;  //current word from array
 
 let guessingWord = []; //word the player is trying to match
 
@@ -25,7 +25,7 @@ function reset (){
 
     starting = false;
     
-    currentWordsIndex = options[Math.floor(Math.random() * options.length)]; //for selecting random word
+    currentWord = options[Math.floor(Math.random() * options.length)]; //for selecting random word
 
     lettersGuessed = []; 
 
@@ -33,7 +33,7 @@ function reset (){
 
     // document.getElementById("hangman").src = "assets0/images/hangman.png";
     
-    for(i = 0; i < options[currentWordsIndex].length; i++);{// I'm nesting the currentWordsIndex 
+    for(i = 0; i < options[currentWord].length; i++);{// I'm nesting the currentWordsIndex 
     guessingWord.push("_");     // variable within the main array.  I needed a way to clear the array                      //and save the word being guessed while that current word being disguised by "_".
 }
     document.getElementById("hangman").style.cssText="display:none";
@@ -46,6 +46,29 @@ function reset (){
 
     updateDisplay();
 };
+
+function updateDisplay() {
+
+    document.getElementById("wins").innerText = wins;
+
+    document.getElementById("current").innerText = "";
+
+    for (var i = 0; i < guessingWord.length; i++){
+
+        document.getElementById("current").innerText += guessingWord[i];
+    }
+    document.getElementById("remaining").innerText = remainingGuesses;
+
+    document.getElementById("used").innerText = lettersGuessed;
+
+    if(remainingGuesses <= 0) {
+        document.getElementsByClassName("game-over").style.cssText = "display:block";
+
+        document.getElementsByClassName("try-again").style.cssText = "display:block";
+
+        hasFinished = true;
+    }
+}
 // document.onkeyup = function (event){    // * document.onkeyup is picking up individual keystrokes, funtion is picking up the events of the event.key *Event.key was named as a guess variable * The query selector is filling in the event.key variable in the text id class of the html
 
     // console.log(event.key);
