@@ -5,34 +5,47 @@ body{
     height:auto;
     width: 100%;
 }
-.hangman{
-    height: 200px;
-    width: 200px;
-    display:block;
-    float: left;
-    margin-left: 100px;
-    clear: both;
-}
 h1{
     font-size: 48px;
     color: whitesmoke;
     border: 5px dotted gold;
+    padding: 20px;
 }
 h2{
     color: red;
 }
 #main{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    margin-top: 50px;
     width: 20%;
     text-align: center;
+    z-index: 3;
 }
-.wins{
+#hangman{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    display:block;
+    right: 0;
+    left: 0;
+    margin: auto;
+    margin-top: 200px;
+    opacity: 65%;
+    z-index: 1;
+}
+.game-tally{
+    position: absolute;
+    margin-left: 150px;
+    margin-top:75px;
+    /* font-weight: bold; */
+    font-size: 28px;
+}
+#wins{
     color: gold;
-    float: right;
-    top: 0;
-    margin-right: 200px;
 }
 /* #text{
     color: greenyellow;
