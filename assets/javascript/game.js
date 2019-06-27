@@ -47,8 +47,8 @@ function reset (){
     updateDisplay();
 };
 
-function updateDisplay() {
-
+function updateDisplay() { //tick() would be more efficient in a setting where fps can be improved
+                           // so as to not need the JS to refresh with every update.
     document.getElementById("wins").innerText = wins;
 
     document.getElementById("current").innerText = "";
@@ -62,13 +62,33 @@ function updateDisplay() {
     document.getElementById("used").innerText = lettersGuessed;
 
     if(remainingGuesses <= 0) {
+
         document.getElementsByClassName("game-over").style.cssText = "display:block";
 
         document.getElementsByClassName("try-again").style.cssText = "display:block";
 
-        hasFinished = true;
+        finished = true;
     }
-}
+};
+
+document.onkeyup = function (event){
+
+    if(finished) {
+
+        resetGame();
+
+        finished = false;
+
+    } else {
+
+        if (event.keyCode >= 65 && event.keyCode <= 90) {  // keyCode is only picking up alpha charac...
+                                             // using the ASCII letter codes, more funct. than event.key
+            makeGuess(event.key.toUpperCase());   // for the purpose of this game. 
+
+            }
+        }
+
+    };
 // document.onkeyup = function (event){    // * document.onkeyup is picking up individual keystrokes, funtion is picking up the events of the event.key *Event.key was named as a guess variable * The query selector is filling in the event.key variable in the text id class of the html
 
     // console.log(event.key);
