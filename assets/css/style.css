@@ -1,4 +1,4 @@
-body{
+body {
     font-family: 'Shadows Into Light', cursive, 'Amatic SC', cursive, 'Permanent Marker', cursive;
     color: aliceblue;
     background-color: black;
@@ -29,6 +29,7 @@ h2{
     height: 200px;
     width: 200px;
     position: absolute;
+    display: none;
     display:block;
     right: 0;
     left: 0;
@@ -44,12 +45,15 @@ h2{
     /* font-weight: bold; */
     font-size: 28px;
 }
-#wins{
+.wins{
     color: gold;
 }
 /* #text{
     color: greenyellow;
 } */
-#used{
-    color: red;
+.used{
+    color: darkorange;
+}
+.game-over, .try-again, .congrats{
+    display:none;
 }

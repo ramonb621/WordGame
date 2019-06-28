@@ -10,7 +10,7 @@
     <link rel= "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" href="assets/css/style.css">
     <title>Hangman!</title>
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet"> -->
 
 
 </head>
@@ -38,15 +38,15 @@
 
 <section class = "game-tally">
 
-    <div class = "wins">
+    <div class = "wins">Wins:
 
-        <p id = "wins">Wins:</p>
+        <p id = "wins"></p>
 
     </div>
 
-    <div class = "used">
+    <div class = "used">Wrong Guesses:
 
-        <p id = "used">Wrong Guesses:</p>
+        <p id = "used"></p>
     
     </div>
     
@@ -70,9 +70,9 @@
 
 <section>
 
-    <div class = "remaining">
+    <div class = "remaining">Letters Remaining
 
-        <p id = "remaining">Letter Spaces Remaining</p>
+        <p id = "remaining"></p>
 
     </div>
 
@@ -89,6 +89,13 @@
 
 </section>
 
-    
+<script>
+
+    reset();            // game will not work without the update and reset activated in html file.
+
+    updateDisplay(); 
+
+</script>
+
 </body>
 </html>
