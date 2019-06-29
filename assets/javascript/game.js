@@ -31,9 +31,9 @@ function reset (){
     
                                 //^^? options[Math.floor(Math.random() * options.length)]
 
-    lettersGuessed = []; 
+    lettersGuessed = []; // 6/28/19 I can't get only the correct letters used to log in the "#text". Also displaying incorrect letters.  Will also only allow 1-2 correct inputs before declaring a win.
 
-    guessingWord = [];
+    guessingWord = []; // 6/28/19 I can't get the entire length of word to be guessed to be displayed as " _ " until filled in by the correct letters guessed
 
     // document.getElementById("hangman").src = "assets0/images/hangman.png";
     
