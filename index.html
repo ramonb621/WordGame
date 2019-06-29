@@ -10,92 +10,90 @@
     <link rel= "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel = "stylesheet" href="assets/css/style.css">
     <title>Hangman!</title>
-    <!-- <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet">
 
 
 </head>
 
 <body>
-        <script src= "assets/javascript/game.js"></script>
     
     <div>
-        <img id = "hangman" src = "assets/images/hangman.png">
-    </div>
-
-<section id="main">
-
-    <h1>Hang 'Em Up!</h1>
-
-    <h2>The Game</h2>
-
-
-
-    <div class = "start">
-        <p id = "start">Press Any Key To Get Started!</p>
-    </div>
-
-</section>
-
-<section class = "game-tally">
-
-    <div class = "wins">Wins:
-
-        <p id = "wins"></p>
-
-    </div>
-
-    <div class = "used">Wrong Guesses:
-
-        <p id = "used"></p>
-    
+        <img id = "hangman" src = "assets/images/hangman2.png">
     </div>
     
-</section>
-
-<section>
-
-    <div class = "current">Current Word
-
-        <p id = "current"></p>
-
-        <div class = "text"> Correct Letters Used
-
-            <p id = "text"></p>
-
+    <section id="main">
+        
+        <h1>Hang 'Em Up!</h1>
+        
+        <h2>The Game</h2>
+        
+        
+        
+        <div class = "start">
+            <p id = "start">Press Any Key To Get Started!</p>
         </div>
-
-    </div>
-
-</section>
-
-<section>
-
-    <div class = "remaining">Letters Remaining
-
-        <p id = "remaining"></p>
-
-    </div>
-
-</section>
-
-<section class="display-screens">
-
-    <p class="congrats">You did it! You Won!</p>
-
-    <p class="game-over">Game Over!</p>
-
-    <p class="try-again">Press Any Key To Try Again!</p>
-
-
-</section>
+        
+    </section>
+    
+    <section class = "game-tally">
+        
+        <div class = "wins">Wins:
+            
+            <p id = "wins"></p>
+            
+        </div>
+        
+        <div class = "used">Wrong Guesses:
+            
+            <p id = "used"></p>
+            
+        </div>
+        
+    </section>
+    
+    <section class="game-display">
+        
+        <div class = "current">Current Word
+            
+            <p id = "current"></p>
+            
+            <div class = "text"> Correct Letters Used
+                
+                <p id = "text"></p>
+                
+            </div>
+            
+        </div>
+        
+    </section>
+    
+    <section>
+        
+        <div class = "remaining">Chances Left:
+            
+            <p id = "remaining"></p>
+            
+        </div>
+        
+    </section>
+    
+    <section class="display-screens">
+        
+        <p class="congrats">You did it! You Won!</p>
+        
+        <p class="game-over">Game Over!</p>
+        
+        <p class="try-again">Press Any Key To Try Again!</p>
+        
+        
+    </section>
 
 <script>
+    
+     
+    
+    </script>
 
-    reset();            // game will not work without the update and reset activated in html file.
-
-    updateDisplay(); 
-
-</script>
-
+<script src= "assets/javascript/game.js"></script>
 </body>
 </html>

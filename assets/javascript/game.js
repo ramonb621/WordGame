@@ -17,7 +17,7 @@ let finished = false; // command for "press any key to start!"
 let wins = 0;  // total wins
 
 
-// ****************** game set up ***********************
+// ****************** game set up ***********************  LOOK UP QUERY SELECTORS AND SPAN TAGS!!!!
 
 function reset (){
 
@@ -26,6 +26,8 @@ function reset (){
     starting = false;
     
     currentWord = Math.floor(Math.random() * options.length); //for selecting random word
+    
+    console.log(options[currentWord]);
     
                                 //^^? options[Math.floor(Math.random() * options.length)]
 
@@ -36,14 +38,15 @@ function reset (){
     // document.getElementById("hangman").src = "assets0/images/hangman.png";
     
     for(i = 0; i < options[currentWord].length; i++);{// I'm nesting the currentWordsIndex
+
+        guessingWord.push(" _ ");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
     
-        guessingWord.push("_");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
-}
+    }
     // document.getElementById("hangman");
     
     // .style.cssText="display:none";
    
-    document.getElementsByClassName("try-again");
+    document.querySelector("try-again");
    
     // .style.cssText= "display: none"; //display:none works...
 
@@ -57,21 +60,21 @@ function reset (){
 
     updateDisplay();
 
-};
+}
 
 function updateDisplay() { //tick() would be more efficient in a setting where fps can be improved
                            // so as to not need the JS to refresh with every update.
     document.getElementById("wins").innerText = wins;
 
-    document.getElementById("current").innerText = "_";
+    document.getElementById("current").innerText = " _ ";
 
-    for (var i = 0; i < guessingWord.length; i++){
-
+    for (var i = 0; i < guessingWord.length; i++){  //**** ONLY LETTING THE LENGTH OF GUESS UP TO 1 INSTEAD OF WHOLE WORD */
+                                                    // allowing wrong guesses to count as win after 1 guess
         document.getElementById("current").innerText += guessingWord[i];
     }
     document.getElementById("remaining").innerText = remainingGuesses;
 
-    document.getElementById("used").innerText = lettersGuessed;  // original ElemendId "used"
+    document.getElementById("text").innerText = lettersGuessed;  // original ElemendId "used", "text" logs in appr. place
 
     if(remainingGuesses <= 0) {
 
@@ -85,7 +88,7 @@ function updateDisplay() { //tick() would be more efficient in a setting where f
 
         finished = true;
     }
-};
+}
 
 document.onkeydown = function(event){
 
@@ -97,85 +100,96 @@ document.onkeydown = function(event){
 
     } else {
 
+        // if (event.key.match(/[a-zA-Z]/)) {
+        // }
+
         if (event.keyCode >= 65 && event.keyCode <= 90) {  // keyCode is only picking up alpha charac...
                                              // using the ASCII letter codes, more funct. than event.key
-            makeGuess(event.key.toUpperCase());   // for the purpose of this game. 
+            makeGuess(event.key.toLowerCase());   // for the purpose of this game. 
 
-            }
         }
 
-    };
+    }
+}
 
-    function makeGuess(letter) {
+function makeGuess(letter) {
 
-        if(remainingGuesses > 0) {
+    if(remainingGuesses > 0) {
 
-            if(!starting) {
-            
-                starting = true;
-            }
-            
-            if(lettersGuessed.indexOf(letter) === -1) {
-            
-                lettersGuessed.push(letter);
-            
-                evaluateGuess(letter);
-            
-            }
-        }
-
-        updateDisplay();
-
-        checkWin();
-
-    };
-
-    function evaluateGuess(letter) {                    // I'm not sure that this is actually comparing the guessingWord from the onkeydown to the letters of the
-                                                        // cleared nested array within option[currentWord].length *********
+        if(!starting) {
         
-        let position = [];
+            starting = true;
+        }
+        
+        if(lettersGuessed.indexOf(letter) === -1) {
+        
+            lettersGuessed.push(letter);
+        
+            evaluateGuess(letter);
+        
+        }
+    }
 
-        for(let i = 0; i < options[currentWord].length; i++) {
+    updateDisplay();
 
-            if(options[currentWord][i] === letter) {
+    checkWin();
 
-                position.push(i);
+}
 
-            }
+function evaluateGuess(letter) {                    // I'm not sure that this is actually comparing the guessingWord from the onkeydown to the letters of the
+                                                    // cleared nested array within option[currentWord].length *********
+    
+    let position = [];
+
+    for(let i = 0; i < options[currentWord].length; i++) {
+
+// console.log(options[currentWord][i] === letter, letter)
+        
+    if(options[currentWord][i] === letter) {
+
+            position.push(i);
+
+            // console.log(i)
 
         }
 
-        if(position.length <= 0) {
+    }
+    // console.warn(position)
 
-            remainingGuesses--;
+    if(position.length <= 0) {
 
-        } else {
+        remainingGuesses--;
 
-            for (let i = 0; i < position.length; i ++) {
+    } else {
 
-                guessingWord[position[i]] = letter;
+        for (let i = 0; i < position.length; i ++) {
 
-            }
-
-        }
-
-    };
-
-    function checkWin() {
-
-       
-        if(guessingWord.indexOf("_") === -1) {
-       
-            document.getElementsByClassName("try-again");
+            // console.info(guessingWord)
             
-            // .style.cssText= "display:block";
-       
-            wins++;
-       
-            finished = true;
-       
+            guessingWord[i] = letter;
+
         }
-    };
+
+    }
+
+}
+
+function checkWin() {
+
+    
+    if(guessingWord.indexOf("_") === -1) {
+    
+        document.getElementsByClassName("try-again");
+        
+        // .style.cssText= "display:block";
+    
+        wins++;
+    
+        finished = true;
+    
+    }
+}
+
 
 // document.onkeyup = function (event){    // * document.onkeyup is picking up individual keystrokes, funtion is picking up the events of the event.key *Event.key was named as a guess variable * The query selector is filling in the event.key variable in the text id class of the html
 
@@ -204,3 +218,9 @@ document.onkeydown = function(event){
 //     }
 // }    
 
+
+$(document).ready(function(){
+    reset();            // game will not work without the update and reset activated in html file.
+        
+    // updateDisplay();
+});

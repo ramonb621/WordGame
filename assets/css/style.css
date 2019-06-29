@@ -14,6 +14,46 @@ h1{
 h2{
     color: red;
 }
+.game-tally{
+    position: absolute;
+    margin-left: 150px;
+    margin-top:75px;
+    /* font-weight: bold; */
+    font-size: 28px;
+}
+.game-display{
+    /* position: absolute;
+    margin-left: 150px;
+    margin-top: 250px; */
+    display: block;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    margin-top: 450px;
+    width: 20%;
+    text-align: center;
+    z-index: 3;
+}
+.wins{
+    color: gold;
+}
+/* #text{
+    color: greenyellow;
+} */
+.used{
+    color: darkorange;
+}
+.remaining{
+    float: right;
+    margin-right: 150px;
+    margin-top:75px;
+    font-size: 2px;
+}
+.game-over, .try-again, .congrats{
+    display:none;
+    clear:both;
+}
 #main{
     display: block;
     position: absolute;
@@ -26,34 +66,18 @@ h2{
     z-index: 3;
 }
 #hangman{
-    height: 200px;
-    width: 200px;
+    height: 185px;
+    width: 220px;
     position: absolute;
-    display: none;
+    /* display: none; */
     display:block;
     right: 0;
     left: 0;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 290px;
     opacity: 65%;
     z-index: 1;
 }
-.game-tally{
-    position: absolute;
-    margin-left: 150px;
-    margin-top:75px;
-    /* font-weight: bold; */
-    font-size: 28px;
-}
-.wins{
-    color: gold;
-}
-/* #text{
-    color: greenyellow;
-} */
-.used{
-    color: darkorange;
-}
-.game-over, .try-again, .congrats{
-    display:none;
+#wins, #used{
+    color:whitesmoke;
 }
