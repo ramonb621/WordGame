@@ -6,7 +6,7 @@ let lettersGuessed = [];  //letters guessed by player
 
 let currentWord;  //current word from array
 
-let guessingWord = []; //word the player is trying to match to array word
+let chosenWord = []; //word the player is trying to match to array word
 
 let remainingGuesses = 0;  //lives left
 
@@ -18,7 +18,6 @@ let wins = 0;  // total wins
 
 
 // ****************** game set up ***********************  LOOK UP QUERY SELECTORS AND SPAN TAGS!!!!
-
 function reset (){
 
     remainingGuesses = maxAttempts;
@@ -33,13 +32,13 @@ function reset (){
 
     lettersGuessed = []; // 6/28/19 I can't get only the correct letters used to log in the "#text". Also displaying incorrect letters.  Will also only allow 1-2 correct inputs before declaring a win.
 
-    guessingWord = []; // 6/28/19 I can't get the entire length of word to be guessed to be displayed as " _ " until filled in by the correct letters guessed
+    chosenWord = []; // 6/28/19 I can't get the entire length of word to be guessed to be displayed as " _ " until filled in by the correct letters guessed
 
     // document.getElementById("hangman").src = "assets0/images/hangman.png";
     
-    for(i = 0; i < options[currentWord].length; i++);{// I'm nesting the currentWordsIndex
+    for(var i = 0; i < options[currentWord].length; i++);{// I'm nesting the currentWordsIndex
 
-        guessingWord.push(" _ ");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
+        chosenWord.push(" _ ");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
     
     }
     // document.getElementById("hangman");
@@ -68,9 +67,11 @@ function updateDisplay() { //tick() would be more efficient in a setting where f
 
     document.getElementById("current").innerText = " _ ";
 
-    for (var i = 0; i < guessingWord.length; i++){  //**** ONLY LETTING THE LENGTH OF GUESS UP TO 1 INSTEAD OF WHOLE WORD */
+    // debugger; tool for debugging
+
+    for (var i = 0; i < chosenWord.length; i++){  //**** ONLY LETTING THE LENGTH OF GUESS UP TO 1 INSTEAD OF WHOLE WORD */
                                                     // allowing wrong guesses to count as win after 1 guess
-        document.getElementById("current").innerText += guessingWord[i];
+        document.getElementById("current").innerText += chosenWord[i];
     }
     document.getElementById("remaining").innerText = remainingGuesses;
 
@@ -166,7 +167,7 @@ function evaluateGuess(letter) {                    // I'm not sure that this is
 
             // console.info(guessingWord)
             
-            guessingWord[i] = letter;
+            chosenWord[i] = letter;
 
         }
 
@@ -177,7 +178,7 @@ function evaluateGuess(letter) {                    // I'm not sure that this is
 function checkWin() {
 
     
-    if(guessingWord.indexOf("_") === -1) {
+    if(chosenWord.indexOf("_") === -1) {
     
         document.getElementsByClassName("try-again");
         
@@ -189,35 +190,6 @@ function checkWin() {
     
     }
 }
-
-
-// document.onkeyup = function (event){    // * document.onkeyup is picking up individual keystrokes, funtion is picking up the events of the event.key *Event.key was named as a guess variable * The query selector is filling in the event.key variable in the text id class of the html
-
-    // console.log(event.key);
-    // let guess = event.key; 
-    // document.querySelector("#text").innerHTML = guess; // the query selector cannot work in the innherHTML if the even.key is not set up in sequential order.
-// }
-
-// let session = options[Math.floor(Math.random() * options.length)]; //for selecting random word
-
-//using underscore to show each letter of answer and trying to use this section to log in answers section
-// let answers = document.getElementById("current");
-// for (let i = 0; i < session.length; i++){
-//     let answersChoice = document.createElement("p");
-
-//     answersChoice.textContent = options[i]
-    // document.querySelector("current").innerHTML = [answers[i]]; // <----I want this to display the                                                          correct letters you're selecting of the answer
-// }
-// Trying to use this to get game started
-// let remLetters = session.length;
-//     if (remLetters > 0 ){
-//     document.querySelector("start").innerHTML = "Click any letter to start!";
-//     document.onkeyup = function (event){
-//         (answers.join(" "));
-
-//     }
-// }    
-
 
 $(document).ready(function(){
     reset();            // game will not work without the update and reset activated in html file.
