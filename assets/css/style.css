@@ -1,9 +1,7 @@
 body {
     font-family: 'Shadows Into Light', cursive, 'Amatic SC', cursive, 'Permanent Marker', cursive;
     color: aliceblue;
-    background-color: black;
-    height:auto;
-    width: 100%;
+    background-color: black;    
 }
 h1{
     font-size: 48px;

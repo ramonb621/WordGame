@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var options = ["poltergeist", "exorcism", "ouija board", "casper", "gravity hill", "paranormal", "crucifix", "hex", "occult", "soul", "posession", "haunting", "creepy", "ghost", "medium", "apparition", "conjure", "witchcraft", "robert the doll", "la llorona", "el chupacabra", "folklore", "vampire"];
+var options = ["poltergeist", "exorcism", "ouija board", "casper", "gravity hill", "paranormal", "crucifix", "hex", "occult", "soul", "posession", "haunting", "creepy", "ghost", "medium", "apparition", "conjure", "witchcraft", "robert the doll", "la llorona", "el chupacabra", "folklore", "vampire", "voo doo"];
 
 var maxAttempts = 5;       // max lives
 
@@ -40,7 +40,7 @@ function reset (){
     
     for(var i = 0; i < options[currentWord].length; i++);{// I'm nesting the currentWordsIndex
 
-        chosenWord.push("_");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
+        chosenWord.push(" _ ");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
 
     }
     // document.getElementById("hangman");
@@ -67,7 +67,7 @@ function updateDisplay() { //tick() would be more efficient in a setting where f
                            // so as to not need the JS to refresh with every update.
     document.getElementById("wins").innerText = wins;
 
-    document.getElementById("current").innerText = "";
+    document.getElementById("current").innerText = " _ ";
 
     // debugger; tool for debugging
 
@@ -182,7 +182,7 @@ function evaluateGuess(letter) {     // I'm not sure that this is actually compa
 function checkWin() {
 
     
-    if(chosenWord.indexOf("_") === -1) {
+    if(chosenWord.indexOf(" _ ") === -1) {
     
         // document.getElementsByClassName("try-again");
         
