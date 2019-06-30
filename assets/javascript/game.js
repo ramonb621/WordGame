@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var options = ["horse", "rope", "saddle", "saloon", "train", "cowboy", "wagon", "tuberculosis", "cactus", "pistol", "steeple", "spurs", "boots", "chaps"];
+var options = ["poltergeist", "exorcism", "ouija board", "casper", "gravity hill", "paranormal", "crucifix", "hex", "occult", "soul", "posession", "haunting", "creepy", "ghost", "medium", "apparition", "conjure", "witchcraft", "robert the doll", "la llorona", "el chupacabra", "folklore", "vampire"];
 
 var maxAttempts = 5;       // max lives
 
