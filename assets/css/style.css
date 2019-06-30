@@ -35,6 +35,9 @@ h2{
     text-align: center;
     z-index: 3;
 }
+.current{
+    font-size: 24px;
+}
 .wins{
     color: gold;
 }
@@ -46,13 +49,19 @@ h2{
 }
 .remaining{
     float: right;
-    margin-right: 150px;
+    margin-right: 180px;
     margin-top:75px;
-    font-size: 2px;
+    font-size: 20px;
 }
 .game-over, .try-again, .congrats{
     display:none;
     clear:both;
+}
+.text{
+    display: block;
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 100px;
 }
 #main{
     display: block;

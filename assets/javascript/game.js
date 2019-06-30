@@ -1,59 +1,61 @@
-let options = ["horse", "rope", "saddle", "saloon", "train", "cowboy", "wagon", "tuberculosis", "cactus", "pistol", "steeple", "spurs", "boots", "chaps"];
+$(document).ready(function(){
 
-let maxAttempts = 5;       // max lives
+var options = ["horse", "rope", "saddle", "saloon", "train", "cowboy", "wagon", "tuberculosis", "cactus", "pistol", "steeple", "spurs", "boots", "chaps"];
 
-let lettersGuessed = [];  //letters guessed by player
+var maxAttempts = 5;       // max lives
 
-let currentWord;  //current word from array
+var lettersGuessed = [];  //letters guessed by player
 
-let chosenWord = []; //word the player is trying to match to array word
+var currentWord;  //current word from array
 
-let remainingGuesses = 0;  //lives left
+var chosenWord = []; //word the player is trying to match to array word
 
-let starting = false;  // game status, active or not
+var remainingGuesses = 0;  //lives used/ guesses remaining
 
-let finished = false; // command for "press any key to start!"
+var starting = false;  // game status, active or not
 
-let wins = 0;  // total wins
+var finished = false; // command for "press any key to start!"
+
+var wins = 0;  // total wins
 
 
-// ****************** game set up ***********************  LOOK UP QUERY SELECTORS AND SPAN TAGS!!!!
+// ****************** 6/29/19 I CAN'T GET THE GAME TO LOT MORE THAN 1-2 LETTER GUESSES MORE THAN HALF OF THE TIME AND I GET A LOT OF UNDEFINED WHERE THE LETTERSGUESSED/CURRENTWORD INPUT IS SUPPOSED TO GO. *********************//
 function reset (){
 
     remainingGuesses = maxAttempts;
 
     starting = false;
     
-    currentWord = Math.floor(Math.random() * options.length); //for selecting random word
-    
+    currentWord = Math.floor(Math.random() * (options.length)); //for selecting random word
+
     console.log(options[currentWord]);
     
                                 //^^? options[Math.floor(Math.random() * options.length)]
 
-    lettersGuessed = []; // 6/28/19 I can't get only the correct letters used to log in the "#text". Also displaying incorrect letters.  Will also only allow 1-2 correct inputs before declaring a win.
+    lettersGuessed = []; 
 
-    chosenWord = []; // 6/28/19 I can't get the entire length of word to be guessed to be displayed as " _ " until filled in by the correct letters guessed
+    chosenWord = []; 
 
-    // document.getElementById("hangman").src = "assets0/images/hangman.png";
+    // document.getElementById("hangman").src = "";
     
     for(var i = 0; i < options[currentWord].length; i++);{// I'm nesting the currentWordsIndex
 
-        chosenWord.push(" _ ");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
-    
+        chosenWord.push("_");     // variable within the main array I needed a way to clear the array and save the word being guessed while that current word being disguised by "_".
+
     }
     // document.getElementById("hangman");
     
     // .style.cssText="display:none";
    
-    document.querySelector("try-again");
+    // document.querySelector("try-again");
    
     // .style.cssText= "display: none"; //display:none works...
 
-    document.getElementsByClassName("game-over");
+    // document.getElementsByClassName("game-over");
     
     // .style.cssText= "display: none"; //as a css attr...
     
-    document.getElementsByClassName("congrats");
+    // document.getElementsByClassName("congrats");
     
     // .style.cssText= "display: none"; //JS is longer...
 
@@ -65,7 +67,7 @@ function updateDisplay() { //tick() would be more efficient in a setting where f
                            // so as to not need the JS to refresh with every update.
     document.getElementById("wins").innerText = wins;
 
-    document.getElementById("current").innerText = " _ ";
+    document.getElementById("current").innerText = "";
 
     // debugger; tool for debugging
 
@@ -75,15 +77,15 @@ function updateDisplay() { //tick() would be more efficient in a setting where f
     }
     document.getElementById("remaining").innerText = remainingGuesses;
 
-    document.getElementById("text").innerText = lettersGuessed;  // original ElemendId "used", "text" logs in appr. place
+    document.getElementById("used").innerText = lettersGuessed;  // original ElemendId "used", "text" logs in appr. place
 
     if(remainingGuesses <= 0) {
 
-        document.getElementsByClassName("game-over");
+        // document.getElementsByClassName("game-over");
         
         // .style.cssText= "display:block";
 
-        document.getElementsByClassName("try-again");
+        // document.getElementsByClassName("try-again");
         
         // ).style.cssText= "display:block";
 
@@ -93,11 +95,14 @@ function updateDisplay() { //tick() would be more efficient in a setting where f
 
 document.onkeydown = function(event){
 
+    (maxAttempts - remainingGuesses);//*****//
+
     if(finished) {
 
-        reset();
-
+        
         finished = false;
+        
+        reset();
 
     } else {
 
@@ -125,7 +130,7 @@ function makeGuess(letter) {
         if(lettersGuessed.indexOf(letter) === -1) {
         
             lettersGuessed.push(letter);
-        
+// console.info
             evaluateGuess(letter);
         
         }
@@ -137,12 +142,12 @@ function makeGuess(letter) {
 
 }
 
-function evaluateGuess(letter) {                    // I'm not sure that this is actually comparing the guessingWord from the onkeydown to the letters of the
-                                                    // cleared nested array within option[currentWord].length *********
+function evaluateGuess(letter) {     // I'm not sure that this is actually comparing the chosenWord from the onkeydown to the letters of the
+                            // cleared nested array within option[currentWord].length *********
     
-    let position = [];
+    var position = [];
 
-    for(let i = 0; i < options[currentWord].length; i++) {
+    for(var i = 0; i < options[currentWord].length; i++) {
 
 // console.log(options[currentWord][i] === letter, letter)
         
@@ -151,7 +156,6 @@ function evaluateGuess(letter) {                    // I'm not sure that this is
             position.push(i);
 
             // console.log(i)
-
         }
 
     }
@@ -163,11 +167,11 @@ function evaluateGuess(letter) {                    // I'm not sure that this is
 
     } else {
 
-        for (let i = 0; i < position.length; i ++) {
+        for (var i = 0; i < position.length; i ++) {
 
             // console.info(guessingWord)
             
-            chosenWord[i] = letter;
+            chosenWord[position[i]] = letter;
 
         }
 
@@ -180,7 +184,7 @@ function checkWin() {
     
     if(chosenWord.indexOf("_") === -1) {
     
-        document.getElementsByClassName("try-again");
+        // document.getElementsByClassName("try-again");
         
         // .style.cssText= "display:block";
     
@@ -191,7 +195,6 @@ function checkWin() {
     }
 }
 
-$(document).ready(function(){
     reset();            // game will not work without the update and reset activated in html file.
         
     // updateDisplay();
